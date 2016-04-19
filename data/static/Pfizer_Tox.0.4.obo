@@ -1,0 +1,691 @@
+format-version: 1.2
+date: 28:04:2015 10:10
+saved-by: GOSINM
+auto-generated-by: OBO-Edit 2.3.1
+default-namespace: default_namespace
+
+[Term]
+id: PT:0000000
+name: Organ_System
+namespace: Organ_System
+def: "Broad collection of animal organs or systems with a common physiological role." []
+is_a: PT:0000071 ! Pfizer_Toxicities
+
+[Term]
+id: PT:0000001
+name: Toxicity_Mechanism
+namespace: Toxicity_Mechanism
+def: "Broad collection of animal processes with a common physiological role." []
+is_a: PT:0000071 ! Pfizer_Toxicities
+
+[Term]
+id: PT:0000002
+name: Gastrointestinal_System
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000003
+name: Dermal
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000004
+name: Cardiovascular_System
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000005
+name: Nervous_System
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000006
+name: Renal_System
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000007
+name: Pulmonary_System
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000008
+name: Hepatobiliary_System
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000009
+name: Immune_System
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000010
+name: Reproductive_System
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000011
+name: Musculoskeletal_System
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000012
+name: Endocrine_System
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000013
+name: Hemolymphatic
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000014
+name: Ocular
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000015
+name: Adipose
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000016
+name: Ototoxicity
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000017
+name: Olfactory
+namespace: Organ_System
+is_a: PT:0000000 ! Organ_System
+
+[Term]
+id: PT:0000018
+name: Genetic_Toxicity
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000019
+name: Cytotoxicity
+namespace: Toxicity_Mechanism
+synonym: "apoptosis" RELATED []
+synonym: "cell death" RELATED []
+synonym: "necrosis" RELATED []
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000020
+name: Cell_proliferation
+namespace: Toxicity_Mechanism
+synonym: "hyperplasia" RELATED []
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000021
+name: Carcinogenicity
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000022
+name: Oxidative_Stress
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000023
+name: Mitochondrial_toxicity
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000024
+name: Inflammation
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000025
+name: Lipidosis
+namespace: Toxicity_Mechanism
+synonym: "lipid accumulation" RELATED []
+synonym: "phospholipidosis" RELATED []
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000026
+name: Cell_adhesion
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000027
+name: Cell_junctions
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000028
+name: Pharmacological
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000029
+name: Other_mechanism
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000030
+name: Male_tract
+namespace: Organ_System
+is_a: PT:0000010 ! Reproductive_System
+
+[Term]
+id: PT:0000031
+name: Female_tract
+namespace: Organ_System
+is_a: PT:0000010 ! Reproductive_System
+
+[Term]
+id: PT:0000032
+name: Fetal/Developmental
+namespace: Organ_System
+synonym: "developmental" RELATED []
+is_a: PT:0000010 ! Reproductive_System
+
+[Term]
+id: PT:0000033
+name: Emesis
+namespace: Organ_System
+synonym: "Nausea" RELATED []
+is_a: PT:0000002 ! Gastrointestinal_System
+
+[Term]
+id: PT:0000034
+name: Altered_bowel_function
+namespace: Organ_System
+is_a: PT:0000002 ! Gastrointestinal_System
+
+[Term]
+id: PT:0000035
+name: Stomach
+namespace: Organ_System
+is_a: PT:0000002 ! Gastrointestinal_System
+
+[Term]
+id: PT:0000036
+name: Small_Intestine
+namespace: Organ_System
+is_a: PT:0000002 ! Gastrointestinal_System
+
+[Term]
+id: PT:0000037
+name: Large_Intestine
+namespace: Organ_System
+is_a: PT:0000002 ! Gastrointestinal_System
+
+[Term]
+id: PT:0000038
+name: Skin_rash
+namespace: Organ_System
+is_a: PT:0000003 ! Dermal
+
+[Term]
+id: PT:0000039
+name: Flushing
+namespace: Organ_System
+is_a: PT:0000003 ! Dermal
+
+[Term]
+id: PT:0000040
+name: Wound_Healing
+namespace: Organ_System
+is_a: PT:0000003 ! Dermal
+
+[Term]
+id: PT:0000041
+name: Structural
+namespace: Organ_System
+is_a: PT:0000003 ! Dermal
+
+[Term]
+id: PT:0000042
+name: Electrophysiology
+namespace: Organ_System
+synonym: "ECG" RELATED []
+is_a: PT:0000004 ! Cardiovascular_System
+
+[Term]
+id: PT:0000043
+name: Hemodynamic_effects
+namespace: Organ_System
+synonym: "blood pressure" RELATED []
+synonym: "bp" RELATED []
+synonym: "heart rate" RELATED []
+synonym: "hr" RELATED []
+is_a: PT:0000004 ! Cardiovascular_System
+
+[Term]
+id: PT:0000044
+name: Heart
+namespace: Organ_System
+is_a: PT:0000004 ! Cardiovascular_System
+
+[Term]
+id: PT:0000045
+name: Blood_Vessel
+namespace: Organ_System
+is_a: PT:0000004 ! Cardiovascular_System
+
+[Term]
+id: PT:0000046
+name: Abuse_potential
+namespace: Organ_System
+is_a: PT:0000005 ! Nervous_System
+
+[Term]
+id: PT:0000047
+name: Seizures
+namespace: Organ_System
+is_a: PT:0000005 ! Nervous_System
+
+[Term]
+id: PT:0000048
+name: Tremors
+namespace: Organ_System
+is_obsolete: true
+
+[Term]
+id: PT:0000049
+name: Dizziness/Ataxia
+namespace: Organ_System
+is_a: PT:0000005 ! Nervous_System
+
+[Term]
+id: PT:0000050
+name: Motor/Tremors
+namespace: Organ_System
+is_a: PT:0000005 ! Nervous_System
+
+[Term]
+id: PT:0000051
+name: Sensory
+namespace: Organ_System
+is_obsolete: true
+
+[Term]
+id: PT:0000052
+name: Altered_Behavior/Activity/Sedation
+namespace: Organ_System
+synonym: "<new synonym>" RELATED []
+synonym: "activity" RELATED []
+is_a: PT:0000005 ! Nervous_System
+
+[Term]
+id: PT:0000053
+name: Sedation
+namespace: Organ_System
+is_obsolete: true
+
+[Term]
+id: PT:0000054
+name: Memory/Cognition
+namespace: Organ_System
+synonym: "<new synonym>" RELATED []
+synonym: "cognition" RELATED []
+is_a: PT:0000005 ! Nervous_System
+
+[Term]
+id: PT:0000055
+name: Kidney
+namespace: Organ_System
+is_a: PT:0000006 ! Renal_System
+
+[Term]
+id: PT:0000056
+name: Bladder/Urinary_tract
+namespace: Organ_System
+is_a: PT:0000006 ! Renal_System
+
+[Term]
+id: PT:0000057
+name: Urination
+namespace: Organ_System
+synonym: "diuresis" RELATED []
+is_a: PT:0000006 ! Renal_System
+
+[Term]
+id: PT:0000058
+name: Urinary_composition
+namespace: Organ_System
+is_a: PT:0000006 ! Renal_System
+
+[Term]
+id: PT:0000059
+name: Nasal
+namespace: Organ_System
+is_a: PT:0000007 ! Pulmonary_System
+
+[Term]
+id: PT:0000060
+name: Lung_Function
+namespace: Organ_System
+synonym: "bronchoconstriction" RELATED []
+synonym: "RR" RELATED []
+synonym: "TV" RELATED []
+is_a: PT:0000007 ! Pulmonary_System
+
+[Term]
+id: PT:0000061
+name: Broncoconstriction
+namespace: Organ_System
+is_obsolete: true
+
+[Term]
+id: PT:0000062
+name: Pulmonary_Structure
+namespace: Organ_System
+is_obsolete: true
+
+[Term]
+id: PT:0000063
+name: Lung
+namespace: Organ_System
+is_obsolete: true
+
+[Term]
+id: PT:0000064
+name: Lung
+namespace: Organ_System
+is_a: PT:0000007 ! Pulmonary_System
+
+[Term]
+id: PT:0000065
+name: Trachea
+namespace: Organ_System
+is_a: PT:0000007 ! Pulmonary_System
+
+[Term]
+id: PT:0000066
+name: Larynx
+namespace: Organ_System
+is_a: PT:0000007 ! Pulmonary_System
+
+[Term]
+id: PT:0000067
+name: Biliary_Enzymes
+namespace: Organ_System
+is_a: PT:0000008 ! Hepatobiliary_System
+
+[Term]
+id: PT:0000068
+name: Metabolism/Liver_Enzymes
+namespace: Organ_System
+is_a: PT:0000008 ! Hepatobiliary_System
+
+[Term]
+id: PT:0000069
+name: Biliary_parenchyma
+namespace: Organ_System
+is_a: PT:0000008 ! Hepatobiliary_System
+
+[Term]
+id: PT:0000070
+name: Liver_parenchyma
+namespace: Organ_System
+is_a: PT:0000008 ! Hepatobiliary_System
+
+[Term]
+id: PT:0000071
+name: Pfizer_Toxicities
+comment: The Safety Lexicon was developed at Pfizer by members of the Drug Safety Research and Development (DSRD) group. The lexicon was developed by Dr. Anne Ryan, and Dr. Denise Robinson-Gravatt and modified by Dr. Mark Gosink. It was created to categorize pre-clinical safety adverse events to better understand their etiology.
+
+[Term]
+id: PT:0000072
+name: Immune_Modulation
+namespace: Organ_System
+is_a: PT:0000009 ! Immune_System
+
+[Term]
+id: PT:0000073
+name: Hypersensitivity
+namespace: Organ_System
+is_a: PT:0000009 ! Immune_System
+
+[Term]
+id: PT:0000074
+name: Autoimmunity
+namespace: Organ_System
+is_a: PT:0000009 ! Immune_System
+
+[Term]
+id: PT:0000075
+name: Immunogenicity
+namespace: Organ_System
+is_a: PT:0000009 ! Immune_System
+
+[Term]
+id: PT:0000076
+name: Bone
+namespace: Organ_System
+is_a: PT:0000011 ! Musculoskeletal_System
+
+[Term]
+id: PT:0000077
+name: Joint/Cartilage
+namespace: Organ_System
+is_a: PT:0000011 ! Musculoskeletal_System
+
+[Term]
+id: PT:0000078
+name: Skeletal_muscle
+namespace: Organ_System
+is_a: PT:0000011 ! Musculoskeletal_System
+
+[Term]
+id: PT:0000079
+name: Pituitary
+namespace: Organ_System
+is_a: PT:0000012 ! Endocrine_System
+
+[Term]
+id: PT:0000080
+name: Adrenal
+namespace: Organ_System
+is_a: PT:0000012 ! Endocrine_System
+
+[Term]
+id: PT:0000081
+name: Thyroid
+namespace: Organ_System
+is_a: PT:0000012 ! Endocrine_System
+
+[Term]
+id: PT:0000082
+name: Parathyroid
+namespace: Organ_System
+is_a: PT:0000012 ! Endocrine_System
+
+[Term]
+id: PT:0000083
+name: Pancreatic_Islets
+namespace: Organ_System
+is_a: PT:0000012 ! Endocrine_System
+
+[Term]
+id: PT:0000084
+name: Blood_cell_function
+namespace: Organ_System
+is_a: PT:0000013 ! Hemolymphatic
+
+[Term]
+id: PT:0000085
+name: Bone_marrow
+namespace: Organ_System
+is_a: PT:0000013 ! Hemolymphatic
+
+[Term]
+id: PT:0000086
+name: Spleen
+namespace: Organ_System
+is_a: PT:0000013 ! Hemolymphatic
+
+[Term]
+id: PT:0000087
+name: Coagulation
+namespace: Organ_System
+is_a: PT:0000013 ! Hemolymphatic
+
+[Term]
+id: PT:0000088
+name: Retina
+namespace: Organ_System
+is_a: PT:0000014 ! Ocular
+
+[Term]
+id: PT:0000089
+name: Lens
+namespace: Organ_System
+is_a: PT:0000014 ! Ocular
+
+[Term]
+id: PT:0000090
+name: Phototoxicity
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000091
+name: Brain
+namespace: Organ_System
+is_a: PT:0000005 ! Nervous_System
+
+[Term]
+id: PT:0000092
+name: Spinal_cord
+namespace: Organ_System
+is_a: PT:0000005 ! Nervous_System
+
+[Term]
+id: PT:0000093
+name: Peripheral_Nerve/Ganglion
+namespace: Organ_System
+is_a: PT:0000005 ! Nervous_System
+
+[Term]
+id: PT:0000094
+name: Exocrine_Pancreas
+namespace: Organ_System
+is_a: PT:0000002 ! Gastrointestinal_System
+
+[Term]
+id: PT:0000095
+name: Thymus
+namespace: Organ_System
+is_a: PT:0000013 ! Hemolymphatic
+
+[Term]
+id: PT:0000096
+name: Lymph_nodes
+namespace: Organ_System
+is_a: PT:0000013 ! Hemolymphatic
+
+[Term]
+id: PT:0000097
+name: Altered_vision
+namespace: Organ_System
+is_a: PT:0000014 ! Ocular
+
+[Term]
+id: PT:0000098
+name: Other_ocular_structures
+namespace: Organ_System
+is_a: PT:0000014 ! Ocular
+
+[Term]
+id: PT:0000099
+name: Skin_inflammation
+namespace: Organ_System
+is_obsolete: true
+
+[Term]
+id: PT:0000100
+name: Mutagenicity
+namespace: Toxicity_Mechanism
+is_a: PT:0000018 ! Genetic_Toxicity
+
+[Term]
+id: PT:0000101
+name: Chromosome_damage
+namespace: Toxicity_Mechanism
+is_a: PT:0000018 ! Genetic_Toxicity
+
+[Term]
+id: PT:0000102
+name: Non-genotoxic_carcinogenicity
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000103
+name: Endoplasmic_reticulum_stress
+namespace: Toxicity_Mechanism
+synonym: "ER stress" RELATED []
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000104
+name: Immune_suppression
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000105
+name: Immunostimulation/Autoimmunity
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000106
+name: Metabolic_alterations
+namespace: Toxicity_Mechanism
+is_obsolete: true
+
+[Term]
+id: PT:0000107
+name: Metabolite-mediated_toxicity
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000108
+name: Altered_permeability/edema
+namespace: Toxicity_Mechanism
+is_a: PT:0000001 ! Toxicity_Mechanism
+
+[Term]
+id: PT:0000109
+name: Sensory
+namespace: Organ_System
+is_a: PT:0000005 ! Nervous_System
+created_by: gosinm
+creation_date: 2012-03-09T10:58:29Z
+

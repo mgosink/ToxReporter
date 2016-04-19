@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<LINK REL="stylesheet" TYPE="text/css" HREF="Style.css" />
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<TABLE CLASS="header">
+<TR>
+	<TD class="header_1">
+		<A HREF="http://www.scripps.edu/florida/"><img border="0" src="scripps.gif" ALT="Scripps Florida"></A>
+	</TD>
+	<TD CLASS="header_2">
+		<DIV CLASS="header">
+			<I><FONT COLOR="blue">G</FONT>ene<FONT COLOR="blue">S</FONT>et <FONT COLOR="orangered">A</FONT>nalyzer</I>
+		</DIV>
+	</TD>
+</TR>
+</TABLE>
+<DIV CLASS="body_indent">
+
+<A NAME="Method"></A>
+<P>
+<H2>Method:</H2>
+<B>Over-representation</B> - Fisher test comparison of a selected list of genes to a defined list of reference genes <I>(i.e. genes on a chip)</I>.
+Test measures the probabilty that a random list would contain as many genes as the selected list in a given GeneSet. p-values are corrected for
+multiple testing using q-value correction.<BR>
+<B>Percent-coverage</B> - Percent coverage is not a statistical test. It is used with presence - absence calls to identify the percent of a gene set category found in the selected list
+as compared to the reference list.
+</P>
+<BR>
+
+<A NAME="GeneLists"></A>
+<P>
+<H2>Enter a list of genes to analyze:</H2>
+Paste a list of entrez gene IDs in this box to compare to the selected gene sets. Non-numerical characters are considered to be delimiters
+between gene ids. Multiple delimiters will be merged.
+</P>
+<BR>
+
+<A NAME="PredefinedLists"></A>
+<P>
+<H2>Choose from predefined Entrez ID gene lists:</H2>
+A number of pre-defined reference gene lists are available for Affymetrix chips. The lists are created from the 'Entrez Gene' column
+from the annotation files provided by Affymetrix. Selecting <B>'--- Input a custom gene list (Entrez IDs) ---'</B> from the list
+will open a new text box into which a custom list of entrez gene ids can be pasted.
+<TABLE BORDER=1>
+	<TR>
+	<TH COLSPAN=2>Available Predefined Gene Lists</TH>
+	</TR>
+	<TR>
+		<TD>Human Genome U133 Plus 2.0 Array</TD>
+		<TD>Gene IDs were extracted from the CSV formatted <A HREF='http://www.affymetrix.com/support/technical/byproduct.affx?product=hg-u133-plus'>annotation file for this chip.</A>
+		Gene IDs were taken from the 'Entrez Gene' column. If a probeset with multiple gene mappings were omitted.</TD>
+	</TR>
+	<TR>
+		<TD>Human Genome U133A Array</TD>
+		<TD>Gene IDs were extracted from the CSV formatted <A HREF='http://www.affymetrix.com/support/technical/byproduct.affx?product=hgu133-20'>annotation file for this chip.</A>
+		Gene IDs were taken from the 'Entrez Gene' column. Probesets with multiple gene mappings were omitted.</TD>
+	</TR>
+	<TR>
+		<TD>Mouse Genome 430 2.0 Array</TD>
+		<TD>Gene IDs were extracted from the CSV formatted <A HREF='http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430-20'>annotation file for this chip.</A>
+		Gene IDs were taken from the 'Entrez Gene' column. Probesets with multiple gene mappings were omitted.</TD>
+	</TR>
+	<TR>
+		<TD>Mouse Genome 430A 2.0 Array</TD>
+		<TD>Gene IDs were extracted from the CSV formatted <A HREF='http://www.affymetrix.com/support/technical/byproduct.affx?product=moe430A-20'>annotation file for this chip.</A>
+		Gene IDs were taken from the 'Entrez Gene' column. Probesets with multiple gene mappings were omitted.</TD>
+	</TR>
+	<TR>
+		<TD>Mouse Genome 430A Array</TD>
+		<TD>Gene IDs were extracted from the CSV formatted <A HREF='http://www.affymetrix.com/support/technical/byproduct.affx?product=ht_mg-430_set'>annotation file for this chip.</A>
+		Gene IDs were taken from the 'Entrez Gene' column. Probesets with multiple gene mappings were omitted.</TD>
+	</TR>
+	<TR>
+		<TD>Mouse Genome U74Av2 Array</TD>
+		<TD>Gene IDs were extracted from the CSV formatted <A HREF='http://www.affymetrix.com/support/technical/byproduct.affx?product=mgu74'>annotation file for this chip.</A>
+		Gene IDs were taken from the 'Entrez Gene' column. Probesets with multiple gene mappings were omitted.</TD>
+	</TR>
+</TABLE>
+</P>
+<BR>
+
+<A NAME="Enter a list of genes to analyze"></A>
+<P>
+<H2>Enter the set of genes from which the above list was selected:</H2>
+Optional input field which is only used if the predefined set is set to '--- Input a custom gene list (Entrez IDs) ---'. This option
+can be used with other reference lists created from other arrays or from other reference collections. (i.e. Genes in a cell-based
+screening library, etc.) Paste your customized reference list of entrez gene identifiers into this box. Any non-numerical character
+pasted into this box will be treated as a delimiter between IDs. Multiple consecutive delimiters will be treated as a single delimiter.
+</P>
+
+
+<A HREF="GSA.tar.gz">Source code for GeneSet Analyzer.</A> This is a large file. (~80Mb)
+
+</DIV>
+</BODY>
+</HTML>
