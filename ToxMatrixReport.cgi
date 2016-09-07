@@ -95,7 +95,9 @@ if ($gene_id_list eq "") {		#	if a genelist hasn't been submitted, display the f
 			"<TD><TEXTAREA NAME='GENELIST' ROWS='8' COLS='50'>$gene_list</TEXTAREA></TD></TR>\n",
 			"<TR><TD VALIGN=TOP ALIGN=RIGHT>Type of ID's being used:</TD>",
 			"<TD><INPUT TYPE='RADIO' NAME='ID_TYPE' VALUE='ENTREZ' CHECKED>Entrez ID's</INPUT>",
-			"<INPUT TYPE='RADIO' NAME='ID_TYPE' VALUE='GENEBOOK'>Genebook ID's</INPUT></TD></TR>";
+# The following line can be uncommented and modified to search internal gene identifiers
+#"<INPUT TYPE='RADIO' NAME='ID_TYPE' VALUE='GENEBOOK'>Genebook ID's</INPUT>",
+			"</TD></TR>";
 	print "</TABLE>\n";
 	
 	print submit('Search');
@@ -284,7 +286,7 @@ $db_handle = DBI->connect( $dsn, $username, $password, { PrintError => 1 })
 				$percentile = sprintf "%.4f", $percentile;
 				my $desc = "Red flag count for $symbol falls in the normalized " . ($percentile*100) . "th percentile in $tox_term risk links.";
 				if ($percentile >= 0.90) { $color = '#FF0000' }
-				elsif ($percentile >= 0.75) { $color = 'orange' }
+				elsif ($percentile >= 0.50) { $color = 'orange' }
 				elsif ($percentile == 0.00) {
 					$color = 'lightgreen';
 					$desc .= " Note: Zero percentile does not mean no risk."
@@ -355,7 +357,7 @@ $db_handle = DBI->connect( $dsn, $username, $password, { PrintError => 1 })
 
 if (not $as_bioservice) {	
 	print "<BR><BR><HR WIDTH=\"50%\"><BR>For questions or problem contact: <A HREF=\"mailto:$MiscVariables{ADMINISTRATOR_EMAIL}\">$MiscVariables{ADMINISTRATOR_NAME}</A>";
-	print "<BR><I><FONT SIZE=\"2\">Developed by Mark Gosink, Investigative Toxicology, DSRD @ Pfizer Inc.</I><BR></FONT>";
+	print "<BR><I><FONT SIZE=\"2\">Developed by <A HREF='http://www.linkedin.com/pub/mark-gosink/0/a77/b5b'>Mark Gosink</A>, Investigative Toxicology, DSRD @ Pfizer Inc.</I><BR></FONT>";
 	print "</DIV>\n";
 
 	print end_html();
