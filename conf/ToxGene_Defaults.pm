@@ -29,7 +29,6 @@ use Exporter;
 'DATABASE_NAME'			=>	'ToxReport_A',
 'DATABASE_HOST'			=>	'localhost',		#	change as appropriate
 'DATABASE_PORT'			=>	'3606',				#	change as appropriate
-'DATABASE_SOCKET'			=>	'/opt2/data/mysql/mysql.sock',				#	change as appropriate
 #'DATABASE_SOCKET'			=>	'/mysql.sock',				#	only use if you local mysql socket is in a non-standard location
 
 'BASE_TOX_SYS_ID'			=>	'1',
@@ -67,8 +66,8 @@ $MiscVariables{DATABASE}  = $MiscVariables{DATABASE_TYPE}
 ###	ENVIRONMENT VARIABLES
 %MiscLinks = (
 'DSRD_HOME'				=>	'http://wrd.pfizer.com/GLOBALLINES/dsrd/Pages/DSRDHome.aspx',
-'GENEBOOK'				=>	'http://pharmamatrix.pfizer.com/pharmamatrix/selPriMenuItem.htm?&priId=geneMenuItem',
-'TARGETPEDIA'			=>	'http://targetpedia.pfizer.com/index.php/',
+'GENEBOOK'				=>	'',
+'TARGETPEDIA'			=>	'',
 'NCBI_GENE'				=>	'http://www.ncbi.nlm.nih.gov/sites/entrez?db=gene',
 'NCBI_HAPMAP'			=>	'http://hapmap.ncbi.nlm.nih.gov/cgi-perl/gbrowse/hapmap28_B36/?name=',
 'DB_SNP'					=>	'http://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?locusId=',
@@ -76,7 +75,7 @@ $MiscVariables{DATABASE}  = $MiscVariables{DATABASE_TYPE}
 'GO_URL'					=>	'http://amigo.geneontology.org/amigo/term/',
 'TRANSFAC_URL'			=>	'http://www.gene-regulation.com/cgi-bin/pub/databases/transfac/getTF.cgi?AC=',
 'GENEID_URL'			=>	'http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=gene&cmd=Retrieve&dopt=full_report&list_uids=',
-'PMXID_URL'				=>	'http://pharmamatrix.pfizer.com/pharmamatrix/displayGene.htm?requested=',
+'PMXID_URL'				=>	'',
 'ENSEMBLGENE_URL'		=>	'http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=',
 'HUGO_GENE_URL'		=>	'http://www.genenames.org/data/hgnc_data.php?hgnc_id=',
 'MGI_GENE_URL'			=>	'http://www.informatics.jax.org/searches/accession_report.cgi?id=MGI:',
@@ -85,7 +84,7 @@ $MiscVariables{DATABASE}  = $MiscVariables{DATABASE_TYPE}
 'RATMAP_GENE_URL'		=>	'http://ratmap.gen.gu.se/ShowSingleLocus.htm?accno=',
 'MIM_GENE_URL'			=>	'http://www.ncbi.nlm.nih.gov/omim/',
 'ZFIN_GENE_URL'		=>	'http://zfin.org/cgi-bin/webdriver?MIval=aa-markerview.apg&OID=',
-'INGENUITY_URL'		=>	'https://pfizer.analysis.ingenuity.com/pa/api/v2/pathwayquery?geneidtype=entrezgene&applicationame=ToxGene&ingenuitypathwayid=',
+'INGENUITY_URL'		=>	'',
 'PUBMED_URL'			=>	'http://www.ncbi.nlm.nih.gov/pubmed/',
 'BODY_MAP'				=>	'http://bodymap.pfizer.com/local-bin/get_bodymap.pl?output_type=whole&id=',
 'HPRD_URL'				=>	'http://www.hprd.org/protein/',
@@ -100,12 +99,12 @@ $MiscVariables{DATABASE}  = $MiscVariables{DATABASE_TYPE}
 'MESH_SEARCH'			=>	'http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=search&db=mesh&doptcmdl=detailed&term=',
 'HOMO_PUBMAJOR_REDIR'	=>	'HomoPubMedRedirect.cgi?TERMTYPE=MAJOR&HOMOLOG=',
 'HOMO_PUBMED_REDIR'	=>	'HomoPubMedRedirect.cgi?HOMOLOG=',
-'FETALMAP_V1'			=>	'http://genomics.pfizer.com/local-bin/get_bodymap.pl?output_type=fetal&id=',
+'FETALMAP_V1'			=>	'',
 'ABI_PRIMERS'			=>	'https://products.appliedbiosystems.com/ab/en/US/adirect/ab?cmd=ABGEKeywordResults&searchBy=all&assayType=ge&searchValue=',
-'MOUSEFETALMAP_V2'	=>	'http://sanlnx33.uk.pfizer.com:8777/ExpressionPortal/Rplot?DATASET=16&GENE=',
+'MOUSEFETALMAP_V2'	=>	'',
 'TOXREPORTBASELINK'	=>	'ToxReport.cgi?ENTREZ=',
 'TOXREPORTBASELINK2'	=>	'http://comptox.pfizer.com/cgi/ToxGene/ToxReport.cgi?ENTREZ=',
-'TOOLBOX'				=>	'http://ecf.pfizer.com/sites/dsrdlajolla/dsrdadb/AssayDatabaseFilter.aspx?Organ=',
+'TOOLBOX'				=>	'',
 'HUM_PROT_REF_DB'		=>	'http://www.hprd.org/protein/',
 'VEGA_GENOME'			=>	'http://vega.sanger.ac.uk/id/',
 'HUGE_NAVIGATOR'		=>	'http://www.hugenavigator.net/HuGENavigator/huGEPedia.do?typeSubmit=GO&check=y&typeOption=gene&which=2&pubOrderType=pubD&firstQuery=x&geneID='
