@@ -85,6 +85,11 @@ $r_app_loc = $SetupFiles{R_APPLICATION};
 	'OMIM'
 );
 
+#	Weighting factor for microarray tissue expression
+$tiss_exp_weight = 0.2;
+#	Weighting factor for human genetic information
+$genetic_weight = 2.0;
+
 #	load all generic gene info
 my %Genes = ();
 my $sql = "SELECT G.idGene, G.entrezID, G.GeneBook_ID, G.idHomolog, S.commonName"
@@ -195,7 +200,7 @@ foreach $gene_id (keys %Gene_2_ClassName) {
 					if ($GeneClassToxAssoc{$gene_id}{$class_name}{$toxterm} eq 'T') { next }
 					else { $GeneClassToxAssoc{$gene_id}{$class_name}{$toxterm} = 'T' }
 					my $cat_weight = 1;
-					if ($class_category =~ /^Microarray_/) { $cat_weight = 0.2 }
+					if ($class_category =~ /^Microarray_/) { $cat_weight = $tiss_exp_weight }
 					$Genes{$gene_id}{$toxterm}{TOTALS} += $cat_weight;
 				}
 			}
@@ -236,10 +241,9 @@ foreach $gene_id (keys %Gene_2_Xref) {
 			foreach $toxterm (keys %{$ToxID_2_ToxCat{$tox_id}}) {
 				if ($GeneXrefToxAssoc{$gene_id}{$tox_id}{$toxterm} eq 'T') { next }
 				else { $GeneXrefToxAssoc{$gene_id}{$tox_id}{$toxterm} = 'T' }
-#				$Genes{$gene_id}{$toxterm}{$class_category}++;
 				$Genes{$gene_id}{$toxterm}{TOTALS}++;
 				my $cat_weight = 1;
-				if ($class_category =~ /^Precision_Medicine/) { $cat_weight = 2.0 }
+				if ($class_category =~ /^Precision_Medicine/) { $cat_weight = $genetic_weight }
 				$Genes{$gene_id}{$toxterm}{TOTALS} += $cat_weight;
 			}
 		}
@@ -308,22 +312,22 @@ while ($line = <FILE>) {
 }
 close(FILE);
 open (FILE, "./tmp_files/Human_Toxicity.Counts");
-open (OUTFILE, ">./tmp_files/Human_Toxicity.Percentiles");
+#open (OUTFILE, ">./tmp_files/Human_Toxicity.Percentiles");
 open (OUTFILEB, ">./tmp_files/Human_Toxicity.PercentLogMax");
 $line = <FILE>;
-print OUTFILE $line;
+#print OUTFILE $line;
 print OUTFILEB $line;
 chomp($line);
 @Headers = split(/\t/, $line);
 while ($line = <FILE>) {
 	chomp($line);
 	my @Vals = split(/\t/, $line);
-	print OUTFILE "$Vals[0]\t$Vals[1]\t$Vals[2]\t$Vals[3]\t";
+#print OUTFILE "$Vals[0]\t$Vals[1]\t$Vals[2]\t$Vals[3]\t";
 	print OUTFILEB "$Vals[0]\t$Vals[1]\t$Vals[2]\t$Vals[3]\t";
 	for ($idx = 4; $idx <= $#Vals; $idx++) {
 		my $toxterm = $Headers[$idx];
 		if ($Vals[$idx] eq 'NA') {
-			print OUTFILE "\|\|$toxterm\:0.0";
+#print OUTFILE "\|\|$toxterm\:0.0";
 			print OUTFILEB "\|\|$toxterm\:0.0";
 		}
 		else {
@@ -337,7 +341,7 @@ while ($line = <FILE>) {
 				}
 				else { last }
 			}
-			print OUTFILE "\|\|$toxterm\:$higest_percentile";
+#print OUTFILE "\|\|$toxterm\:$higest_percentile";
 			if (($ToxMinMax{$toxterm}{MAX}-$ToxMinMax{$toxterm}{MIN}) > 0 ) {
 				$percent_log_max = round((log10($Vals[$idx])-$ToxMinMax{$toxterm}{MIN})/($ToxMinMax{$toxterm}{MAX}-$ToxMinMax{$toxterm}{MIN}), 4);
 			}
@@ -345,7 +349,7 @@ while ($line = <FILE>) {
 			print OUTFILEB "\|\|$toxterm\:$percent_log_max";
 		}
 	}
-	print OUTFILE "\n";
+#print OUTFILE "\n";
 	print OUTFILEB "\n";
 }
 close(OUTFILEB);
@@ -385,22 +389,22 @@ while ($line = <FILE>) {
 }
 close(FILE);
 open (FILE, "./tmp_files/Mouse_Toxicity.Counts");
-open (OUTFILE, ">./tmp_files/Mouse_Toxicity.Percentiles");
+#open (OUTFILE, ">./tmp_files/Mouse_Toxicity.Percentiles");
 open (OUTFILEB, ">./tmp_files/Mouse_Toxicity.PercentLogMax");
 $line = <FILE>;
-print OUTFILE $line;
+#print OUTFILE $line;
 print OUTFILEB $line;
 chomp($line);
 @Headers = split(/\t/, $line);
 while ($line = <FILE>) {
 	chomp($line);
 	my @Vals = split(/\t/, $line);
-	print OUTFILE "$Vals[0]\t$Vals[1]\t$Vals[2]\t$Vals[3]\t";
+#print OUTFILE "$Vals[0]\t$Vals[1]\t$Vals[2]\t$Vals[3]\t";
 	print OUTFILEB "$Vals[0]\t$Vals[1]\t$Vals[2]\t$Vals[3]\t";
 	for ($idx = 4; $idx <= $#Vals; $idx++) {
 		my $toxterm = $Headers[$idx];
 		if ($Vals[$idx] eq 'NA') {
-			print OUTFILE "\|\|$toxterm\:0.0";
+#print OUTFILE "\|\|$toxterm\:0.0";
 			print OUTFILEB "\|\|$toxterm\:0.0";
 		}
 		else {
@@ -415,16 +419,16 @@ while ($line = <FILE>) {
 				}
 				else { last }
 			}
-			print OUTFILE "\|\|$toxterm\:$higest_percentile";
+#print OUTFILE "\|\|$toxterm\:$higest_percentile";
 			$percent_log_max = round((log10($Vals[$idx])-$ToxMinMax{$toxterm}{MIN})/($ToxMinMax{$toxterm}{MAX}-$ToxMinMax{$toxterm}{MIN}), 4);
 			print OUTFILEB "\|\|$toxterm\:$percent_log_max";
 		}
 	}
-	print OUTFILE "\n";
+#print OUTFILE "\n";
 	print OUTFILEB "\n";
 }
 close(OUTFILEB);
-close(OUTFILE);
+#close(OUTFILE);
 close(FILE);
 
 
