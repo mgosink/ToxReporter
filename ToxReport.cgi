@@ -256,7 +256,7 @@ if ($sdg_tox ne 'T') {
 	$expand_info = 'Experimental: Show scores based on SDgamma disproportionality scoring.';
 }
 print "<TABLE><TR COLSPAN=2><TH><span class='help_info' tooltip-data='$ToolTips{ToxAtGlance}'><FONT SIZE=+2>Tox-At-A-Glance",
-      "<a href='$sdgamma_link'><span class='ui-icon $icon help_info' style='float: right; margin-right: .3em;' tooltip-data='$expand_info'></span></a>",
+#      "<a href='$sdgamma_link'><span class='ui-icon $icon help_info' style='float: right; margin-right: .3em;' tooltip-data='$expand_info'></span></a>",
 		"</FONT></span></TH></TR><TR>\n";
 if ($sdg_tox eq 'T') { $tag_type = 'SDGTOX_AT_GLANCE' }
 else { $tag_type = 'TOX_AT_GLANCE' }
@@ -267,8 +267,8 @@ $statement->execute;
 my $tox_percentiles = $row[0];
 @Issues = split(/\|\|/, $tox_percentiles);
 $height = (($#Issues+7) * 9) + 15 . 'pt';
-$alt = 'You must have Adobe SVG Viewer installed to see the bar graphs. To install, click on the \"Start\" button on you desktop and then on \"Control Panel\".'
-		. ' Next, double-click on \"Run Advertised Programs\". Select the \"Adobe SVG Viewer\" from the list of programs, click on \"Run\" and follow the instructions.';
+#$alt = 'You must have Adobe SVG Viewer installed to see the bar graphs. To install, click on the \"Start\" button on you desktop and then on \"Control Panel\".'
+#		. ' Next, double-click on \"Run Advertised Programs\". Select the \"Adobe SVG Viewer\" from the list of programs, click on \"Run\" and follow the instructions.';
 if ($species_common eq 'Human') {
 
 	my $toxdata = $tox_percentiles;
@@ -614,22 +614,19 @@ else {
 	print h2("<I>Warning!</I> No toxicity issues have be flagged.<br>\n");
 }
 %Issues = ();
-#find_tox_term_issues();
 
 
 #####################################################################################
 #	display gene database cross references
 #####################################################################################
-#$gb_link = $MiscLinks{PMXID_URL};
-#if (($genebook ne "") && ($genebook ne "N.A.")) {
-#	print "GeneBook: <A HREF='$gb_link$genebook'>$genebook</A><BR>\n";
-#}
 $tb_link = $MiscLinks{TARGETPEDIA};
 if (($genebook ne "") && ($genebook ne "N.A.")) {
-	print "TargetPedia: <A HREF='$tb_link$genebook'>$genebook</A><BR>\n";
+# The following line can be uncommented and modified to search internal gene identifiers
+#	print "TargetPedia: <A HREF='$tb_link$genebook'>$genebook</A><BR>\n";
 }
 else {
-	print "GeneBook: Not available.<BR>\n";
+# The following line can be uncommented and modified to search internal gene identifiers
+#	print "GeneBook: Not available.<BR>\n";
 }
 $entrez_link = $MiscLinks{GENEID_URL};
 print "Entrez: <A HREF='$entrez_link$entrez'>$entrez</A><BR>\n";
@@ -681,7 +678,6 @@ foreach $id_xref (@Sorted_XrefIDS) {
 		$reason =~ s/'/\\&quot;/g;
 		$reason =~ s/"/\\&quot;/g;
 		$reason =~ s/[\n\r\f]+//g;
-#		print "<img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a>\n";
 		print "<span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span>\n";
 	}
 
@@ -765,7 +761,6 @@ foreach $id_xref (@Sorted_XrefIDS) {
 		$reason =~ s/'/\\&quot;/g;
 		$reason =~ s/"/\\&quot;/g;
 		$reason =~ s/[\n\r\f]+//g;
-#		print "<img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a>\n";
 		print "<span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span>\n";
 	}
 
@@ -830,11 +825,6 @@ for ($idx = 0; $idx <= $num_classes; $idx += 900) {
 			. join(", ", @ClassList[$start_idx..$end_idx]) . ")";
 	}
 }
-#print "SQL -\n$sql\n\n";
-#my $sql = "SELECT idGene_Class, idClass_Evid, Evid_Type, Evidence, Evid_Score, Update_Date"
-#			. " FROM Class_Evid"
-#			. " WHERE idGene_Class in ("
-#			. join(", ", @ClassList) . ")";
 
 $statement = $db_handle->prepare($sql);
 $statement->execute;
@@ -856,7 +846,6 @@ find_tox_term_issues_by_type('CLASS', join(', ', @ClassIDList));
 $class_sys = 'Genetic Association Database';
 $not_flagged = 0;
 $number_flagged = 0;
-#print '<TABLE><TR><TH COLSPAN=2>Genetic Association Links</TH></TR>';
 print "<B>Genetic Association Links</B><BR><TABLE BORDER=0><TR VALIGN='top'>";
 $cell_count = 1;
 foreach $id_gene_class (@SortClassList) {
@@ -879,7 +868,6 @@ foreach $id_gene_class (@SortClassList) {
 	$reason .= "</UL>";
 	if ($tox_issue_flag eq 'T') {
 		$reason =~ s/'/\\\"/g;
-#		print "<TD><img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a></TD>\n";
 		print "<TD><span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span></TD>\n";
 		print "<TD><A HREF='$link' TITLE='Open Genetic Association Database record.'>$name</A></TD><TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>";
 		$cell_count++;
@@ -930,7 +918,6 @@ foreach $id_gene_class (@SortClassList) {
 	$reason .= "</UL>";
 	if ($tox_issue_flag eq 'T') {
 		$reason =~ s/'/\\\"/g;
-#		print "<TD><img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a></TD>\n";
 		print "<TD><span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span></TD>\n";
 		print "<TD><A HREF='$link' TITLE='Open Genetic Association Database record.'>$name</A></TD><TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>";
 		$cell_count++;
@@ -1010,7 +997,6 @@ foreach $id_gene_class (@SortClassList) {
 	$reason .= "</UL>";
 	if ($tox_issue_flag eq 'T') {
 		$reason =~ s/'/\\\"/g;
-#		print "<TD><img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a></TD>\n";
 		print "<TD><span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span></TD>\n";
 		print "<TD><A HREF='$link' title = '$desc'>$name</A></TD><TD>";
 	}
@@ -1075,7 +1061,6 @@ foreach $id_gene_class (@SortClassList) {
 	if ($tox_issue_flag eq 'T') {
 		$reason =~ s/'/\\\"/g;
 		print "<TR VALIGN='top'>";
-#		print "<TD><img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a></TD>\n";
 		print "<TD><span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span></TD>\n";
 		print "<TD><A HREF='$link' title = '$desc'>$name</A></TD><TD>";
 	}
@@ -1140,7 +1125,6 @@ foreach $id_gene_class (@SortClassList) {
 	if ($tox_issue_flag eq 'T') {
 		$reason =~ s/'/\\\"/g;
 		print "<TR VALIGN='top'>";
-#		print "<TD><img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a></TD>\n";
 		print "<TD><span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span></TD>\n";
 		print "<TD><A HREF='$link' title = '$desc'>$name</A></TD><TD>";
 	}
@@ -1193,7 +1177,6 @@ foreach $id_gene_class (@SortClassList) {
 	my $native = $ClassHash{$id_gene_class}{NATIVE};
 	my $name = $ClassHash{$id_gene_class}{NAME};
 	my $id_class = $ClassHash{$id_gene_class}{CLASS};
-#	my $link = $MiscLinks{INGENUITY_URL} . 'ING:' . $native . '&geneid=' . $entrez;
 	my $link = $MiscLinks{INGENUITY_URL} . $native . '&geneid=' . $entrez;
 	my $reason = "<UL>";
 	my $class_id = $ClassHash{$id_gene_class}{CLASS};
@@ -1209,7 +1192,6 @@ foreach $id_gene_class (@SortClassList) {
 	if ($tox_issue_flag eq 'T') {
 		$reason =~ s/'/\\\"/g;
 		print "<TR VALIGN='top'>";
-#		print "<TD><img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a></TD>\n";
 		print "<TD><span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span></TD>\n";
 		print "<TD><A HREF='$link' title = 'Open Ingenuity display of gene in pathway.'>$name</A></TD><TD>";
 	}
@@ -1257,7 +1239,6 @@ if ($species_common eq 'Mouse') {
 		if ($tox_issue_flag eq 'T') {
 			$reason =~ s/'/\\\"/g;
 			print "<TR VALIGN='top'>";
-#			print "<TD><img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a></TD>\n";
 			print "<TD><span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span></TD>\n";
 		}
 		elsif ($show_all eq 'T') {
@@ -1352,7 +1333,6 @@ if ($species_common eq 'Human') {
 			$reason =~ s/"/\\&quot;/g;
 			$reason =~ s/[\n\r\f]+//g;
 			print "<TR VALIGN='top'>";
-#			print "<TD><img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a></TD>\n";
 			print "<TD><span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span></TD>\n";
 			print "<TD><A HREF='$link' title = '$desc'>$name</A></TD><TD>";
 			$SeenBefore{$name} = 'T';
@@ -1442,9 +1422,7 @@ if (($species_common eq 'Human') || ($species_common eq 'Mouse')) {
 			$reason =~ s/"/\\&quot;/g;
 			$reason =~ s/[\n\r\f]+//g;
 			print "<TR VALIGN='top'>";
-#			print "<TD><img src='$image_path/RedFlag_25.png'height='26' width='20' /><a class='tooltip' href='#'><FONT SIZE='-1'>(info)</FONT><span class='custom info'><em>Reason(s) for Flag</em>$reason</span></a></TD>\n";
 			print "<TD><span class='evid_info' tooltip-data='$reason'><img src='$image_path/RedFlag_25.png'height='26' width='20' /></span></TD>\n";
-#			print "<TD><A HREF='$link' title = '$desc'>$name</A></TD><TD>";
 			print "<TD>$name</TD><TD>";
 			$SeenBefore{$name} = 'T';
 
@@ -1524,7 +1502,7 @@ $db_handle->disconnect;
 
 
 print "<BR><BR><HR WIDTH=\"50%\"><BR>For questions or problem contact: <A HREF=\"mailto:$MiscVariables{ADMINISTRATOR_EMAIL}\">$MiscVariables{ADMINISTRATOR_NAME}</A>";
-print "<BR><I><FONT SIZE=\"2\">Developed by Mark Gosink, Investigative Toxicology, DSRD @ Pfizer Inc.</I><BR></FONT>";
+print "<BR><I><FONT SIZE=\"2\">Developed by <A HREF='http://www.linkedin.com/pub/mark-gosink/0/a77/b5b'>Mark Gosink</A>, Investigative Toxicology, DSRD @ Pfizer Inc.</I><BR></FONT>";
 print "</DIV>\n";
 
 print end_html();
@@ -1558,11 +1536,6 @@ sub find_child_tox_terms {
 sub find_tox_term_issues {
 	my $all_ids = join(', ', keys(%AllTermIDs));
 	my %PreviouslySeenEvidence = ();		#	this is a hack to correct multiple evidence link need to figure out how to clean up
-#	my $sql = "SELECT TL.idToxTerm, TL.idToxLink, TL.Gene_idGene, TL.Xref_idXref, TL.Class_idClass,"
-#				. " TLE.idToxLink_Evid, TLE.Tox_Evidence"
-#				. " FROM ToxLink TL, ToxLink_Evid TLE"
-#				. " WHERE TL.idToxTerm IN ($all_ids)"
-#				. " AND TL.idToxLink = TLE.idToxLink";
 
 	my @All_IDs = keys(%AllTermIDs);
 	my $num_ids = $#All_IDs;
@@ -1571,7 +1544,6 @@ sub find_tox_term_issues {
 		my $start_idx = $idx;
 		my $end_idx = $idx + 899;
 		if ($end_idx > $num_ids) { $end_idx = $num_ids }
-#print "START -$start_idx\tEND - $end_idx\n\n";
 		if ($start_idx == 0) {
 		$sql = "SELECT TL.idToxTerm, TL.idToxLink, TL.Gene_idGene, TL.Xref_idXref, TL.Class_idClass,"
 				. " TLE.idToxLink_Evid, TLE.Tox_Evidence"
@@ -1587,16 +1559,7 @@ sub find_tox_term_issues {
 				. " AND TL.idToxLink = TLE.idToxLink";
 		}
 	}
-#print "SQL -\n$sql\n\n";
-	#my $sql = "SELECT idGene_Class, idClass_Evid, Evid_Type, Evidence, Evid_Score, Update_Date"
-	#			. " FROM Class_Evid"
-	#			. " WHERE idGene_Class in ("
-	#			. join(", ", @ClassList) . ")";
 
-
-
-
-#print "SQL - '$sql'<BR>\n";
 	$statement = $db_handle->prepare($sql);
 	$statement->execute;
 	while (@row = $statement->fetchrow_array) {
@@ -1638,7 +1601,6 @@ sub find_tox_term_issues_by_type {
 		my $start_idx = $idx;
 		my $end_idx = $idx + 899;
 		if ($end_idx > $num_ids) { $end_idx = $num_ids }
-#print "START -$start_idx\tEND - $end_idx\n\n";
 		if ($start_idx == 0) {
 			$sql = "SELECT TL.idToxTerm, TL.idToxLink, TL.Gene_idGene, TL.Xref_idXref, TL.Class_idClass,"
 						. " TLE.idToxLink_Evid, TLE.Tox_Evidence"
@@ -1660,26 +1622,7 @@ sub find_tox_term_issues_by_type {
 			elsif ($type eq 'GENE') { $sql .= " AND TL.Gene_idGene in (" . join(", ", @All_IDs[$start_idx..$end_idx]) . ")" }
 		}
 	}
-#print "SQL -\n$sql\n\n";
 
-
-
-
-#	my $sql = "SELECT TL.idToxTerm, TL.idToxLink, TL.Gene_idGene, TL.Xref_idXref, TL.Class_idClass,"
-#				. " TLE.idToxLink_Evid, TLE.Tox_Evidence"
-#				. " FROM ToxLink TL, ToxLink_Evid TLE"
-#				. " WHERE TL.idToxTerm IN ($all_ids)"
-#				. " AND TL.idToxLink = TLE.idToxLink";
-#	if ($type eq 'XREF') { $sql .= " AND TL.Xref_idXref in ($id_list)" }
-#	elsif ($type eq 'CLASS') { $sql .= " AND TL.Class_idClass in ($id_list)" }
-#	elsif ($type eq 'GENE') { $sql .= " AND TL.Gene_idGene in ($id_list)" }
-
-
-
-
-
-
-#print "SQL - '$sql'<BR>\n";
 	$statement = $db_handle->prepare($sql);
 	$statement->execute;
 	while (@row = $statement->fetchrow_array) {
@@ -1708,19 +1651,3 @@ sub find_tox_term_issues_by_type {
 }
 
 sub by_xref_source { return $Xrefs{$a}{SOURCE} cmp $Xrefs{$b}{SOURCE} }
-
-
-#		print '
-#      	  var data_2 = new google.visualization.DataTable();
-#			  data_2.addColumn("string", "Term");
-#			  data_2.addColumn("number", "Score");
-#			  data_2.addColumn("string", "style");
-#			  data_2.addRows([';
-#		for ($idx = 0; $idx <= $#DataPairs; $idx++) {
-#			my $pair = $DataPairs[$idx];
-#			my ($tox, $score) = split(/:/, $pair);
-#			print "['$tox', $score, 'color: gray']";
-#			if ($idx == $#DataPairs) { print "\n" }
-#			else { print ",\n" }
-#		}
-#		print "]);\n";
