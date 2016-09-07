@@ -99,8 +99,11 @@ else {
 }
 
 if ($term eq "") {
-	print "<I>For the most dependable search results, please use the Genebook ID, Entrez ID or the official HUGO symbol.<BR>\n";
-	print "Genebook IDs available from <A HREF='$MiscLinks{TARGETPEDIA}'>TargetPedia</A><BR>\n";
+# The following line can be uncommented and modified to search internal gene identifiers
+#	print "<I>For the most dependable search results, please use the Genebook ID, NCBI Gene ID or the official HUGO symbol.<BR>\n";
+	print "<I>For the most dependable search results, please use the NCBI Gene ID or the official HUGO symbol.<BR>\n";
+# The following line can be uncommented and modified to search internal gene identifiers
+#	print "Genebook IDs available from <A HREF='$MiscLinks{TARGETPEDIA}'>TargetPedia</A><BR>\n";
 	print "Entrez IDs & HUGO symbols available from <A HREF='$MiscLinks{NCBI_GENE}'>Entrez Gene</A></I><BR>\n";
 	print start_form();
 	print "<input type='hidden' name='TOX_SYS_ID' value='$tox_sys_id'></input>\n";
@@ -135,7 +138,9 @@ else {
 	$db_handle = DBI->connect( $dsn, $username, $password, { PrintError => 1 })
 						or die "Can't connect to the database!!\n\n";
 
-	print "Searching Entrez IDs and GeneBook IDs ...<BR>\n<UL>\n";
+# The following line can be uncommented and modified to search internal gene identifiers
+#	print "Searching Entrez IDs and GeneBook IDs ...<BR>\n<UL>\n";
+	print "Searching Entrez IDs ...<BR>\n<UL>\n";
 	my $sql = "SELECT G.entrezID, S.idSpecies, S.commonName,  S.sciName, G.GeneBook_ID, G.idGene"
 				. " FROM Gene G, Species S"
 				. " WHERE S.idSpecies = G.idSpecies"
@@ -175,7 +180,9 @@ else {
 		$statement_2->finish;
 		$found_something = 'T';
 		print "<LI><span  class='help_info' tooltip-data='$ToolTips{Matrix_or_Individ}'><input type='checkbox' name='GENELIST' value='$entrez' CHECKED>",
-						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez / $genebook</A> $symbol - $fullname ($species_common)</span></LI>\n";
+# The following line can be uncommented and modified to search internal gene identifiers
+#						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez / $genebook</A> $symbol - $fullname ($species_common)</span></LI>\n";
+						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez </A> $symbol - $fullname ($species_common)</span></LI>\n";
 	}
 	print "</UL>\n";
 
@@ -223,17 +230,23 @@ else {
 		if ($symbol =~ /$term/) {
 			$symbol =~ s/($term)/<FONT COLOR='red'>$1<\/FONT>/ig;
 			print "<LI><span  class='help_info' tooltip-data='$ToolTips{Matrix_or_Individ}'><input type='checkbox' name='GENELIST' value='$entrez' CHECKED>",
-						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez / $genebook</A> $symbol - $fullname ($species_common)</span></LI>\n";
+# The following line can be uncommented and modified to search internal gene identifiers
+#						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez / $genebook</A> $symbol - $fullname ($species_common)</span></LI>\n";
+						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez</A> $symbol - $fullname ($species_common)</span></LI>\n";
 		}
 		elsif ($fullname =~ /$term/) {
 			$fullname =~ s/($term)/<FONT COLOR='red'>$1<\/FONT>/ig;
 			print "<LI><span  class='help_info' tooltip-data='$ToolTips{Matrix_or_Individ}'><input type='checkbox' name='GENELIST' value='$entrez' CHECKED>",
-						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez / $genebook</A> $symbol - $fullname ($species_common)</LI>\n";
+# The following line can be uncommented and modified to search internal gene identifiers
+#						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez / $genebook</A> $symbol - $fullname ($species_common)</LI>\n";
+						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez</A> $symbol - $fullname ($species_common)</LI>\n";
 		}
 		else {
 			$name =~ s/($term)/<FONT COLOR='red'>$1<\/FONT>/ig;
 			print "<LI><span  class='help_info' tooltip-data='$ToolTips{Matrix_or_Individ}'><input type='checkbox' name='GENELIST' value='$entrez' CHECKED>",
-						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez / $genebook</A> $symbol - $fullname ($species_common)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$name</LI>\n";
+# The following line can be uncommented and modified to search internal gene identifiers
+#						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez / $genebook</A> $symbol - $fullname ($species_common)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$name</LI>\n";
+						"<A HREF='ToxReport.cgi?TOX_SYS_ID=$tox_sys_id&TOXTERM=$tox_term&ENTREZ=$entrez'>$entrez</A> $symbol - $fullname ($species_common)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$name</LI>\n";
 		}
 	}
 	print "</UL>\n";
@@ -248,7 +261,7 @@ else {
 }
 
 print "<BR><BR><HR WIDTH=\"50%\"><BR>For questions or problem contact: <A HREF=\"mailto:$MiscVariables{ADMINISTRATOR_EMAIL}\">$MiscVariables{ADMINISTRATOR_NAME}</A>";
-print "<BR><I><FONT SIZE=\"2\">Developed by Mark Gosink, Investigative Toxicology, DSRD @ Pfizer Inc.</I><BR></FONT>";
+print "<BR><I><FONT SIZE=\"2\">Developed by <A HREF='http://www.linkedin.com/pub/mark-gosink/0/a77/b5b'>Mark Gosink</A>, Investigative Toxicology, DSRD @ Pfizer Inc.</I><BR></FONT>";
 print '</DIV>';
 
 print end_html();
